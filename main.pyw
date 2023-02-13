@@ -320,12 +320,12 @@ def move_thread(nation_dict, nations, window, nation_index):
                     #        lambda: prep.apply_wa(pin, chk, headers), "-WA DONE-"
                     #    )
                     case "Get Local ID":
-                        print("FETCH LOCAL ID")
+                       # print("FETCH LOCAL ID")
                         window.perform_long_operation(
                             lambda: prep.get_local_id(pin, headers), "-LOCALID DONE-"
                         )
                     case "Move to JP":
-                        print("MOVE TO JP")
+                        #print("MOVE TO JP")
                         window.perform_long_operation(
                             lambda: prep.move_to_jp(jp, pin, local_id, headers),
                             "-MOVED TO JP-",
@@ -350,7 +350,7 @@ def move_thread(nation_dict, nations, window, nation_index):
 #                        window["-MOVEACTION-"].update("Apply WA")
                         
                         window["-MOVEACTION-"].update("Get Local ID")
-                        print("MOVED")
+                        #print("MOVED")
 
                 #case "-WA DONE-":
                 #    window["-OUT-"].update(f"Applied: {current_nation}")
@@ -360,14 +360,14 @@ def move_thread(nation_dict, nations, window, nation_index):
                     window["-MOVEOUT-"].update(f"Local ID: {current_nation}")
                     local_id = values["-LOCALID DONE-"]
                     window["-MOVEACTION-"].update("Move to JP")
-                    print("LOCAL DONE")
+                    #print("LOCAL DONE")
 
                 case "-MOVED TO JP-":
                     window["-MOVEOUT-"].update(f"Moved: {current_nation}")
                     nation_index += 1
                     window[polls_tab].update(disabled=False)
                     window["-MOVEACTION-"].update("Login")
-                    print("MOVED")
+                    #print("MOVED")
 
                 case "-CURRENT TAB-":
                     if values["-CURRENT TAB-"] != "Prep":
